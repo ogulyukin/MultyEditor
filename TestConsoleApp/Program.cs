@@ -20,7 +20,8 @@ namespace TestConsoleApp
             switch (select)
             {
                 case "1":
-                    path = @"c:\Users\Stari\Desktop\Новый текстовый документ.txt";
+                    //path = @"c:\Users\Stari\Desktop\Новый текстовый документ.txt";
+                    path = @"";
                     fileWorking = new TxtFileWorking();
                     break;
                 case "2":
@@ -29,9 +30,31 @@ namespace TestConsoleApp
                     break;
             }
 
-            file = fileWorking.Open(path);
+            var result = fileWorking.Open(path, out file);
 
-            Show(file);
+            if (result.Success)
+            {
+                Show(file);
+            }
+            else
+            {
+                switch (result.Type)
+                {
+                    case ErrorType.Unknown:
+                        ShowError("Неопределённая ошибка");
+                        break;
+                    case ErrorType.PathEmpty:
+                        ShowError("Пустой путь к файлу");
+                        break;
+                }
+            }
+        }
+
+        private static void ShowError(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
 
         private static void Show(File file)

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace FileLib.Txt
 {
@@ -6,44 +7,68 @@ namespace FileLib.Txt
     {
         #region Create_Open
 
-        public File Create()
+        public SuccesObject Create(out File file)
         {
-            return new TxtFile();
+            file = new TxtFile();
+            return new SuccesObject{Success = true, Type = ErrorType.NotError};
         }
 
-        public File Open(string path)
+        public SuccesObject Open(string path, out File file)
         {
-            using var file = new StreamReader(path);
-            var content = file.ReadToEnd();
+            if (string.IsNullOrEmpty(path))
+            {
+                file = null;
+                return new SuccesObject{Success = false, Type = ErrorType.PathEmpty};
+            }
 
-            return new TxtFile(path, content);
+            var content = string.Empty;
+            try
+            {
+                using var input = new StreamReader(path);
+                content = input.ReadToEnd();
+            }
+            catch (Exception)
+            {
+                file = null;
+                return new SuccesObject{Success = false, Type = ErrorType.Unknown};
+            }
+            file = new TxtFile(path, content);
+            return new SuccesObject { Success = true, Type = ErrorType.NotError };
         }
 
         #endregion
 
         #region Save
 
-        public void SaveAs(string path, File file)
+        public SuccesObject SaveAs(string path, File file)
         {
             file.Path = path;
             Save(file);
+            //TODO Обработать ошибки
+            return new SuccesObject { Success = true, Type = ErrorType.NotError };
         }
 
-        public void Save(File file)
+        public SuccesObject Save(File file)
         {
             using var output = new StreamWriter(file.Path, append:false);
             output.WriteAsync(file.Content);
+            //TODO Обработать ошибки
+            return new SuccesObject { Success = true, Type = ErrorType.NotError };
         }
 
         #endregion
         
-        public void Print(File file)
+        public SuccesObject Print(File file)
         {
+            //TODO Обработать ошибки
+            return new SuccesObject { Success = true, Type = ErrorType.NotError };
             //TODO Print
         }
 
-        public void Close(File file)
+        public SuccesObject Close(File file)
         {
+            //TODO Обработать ошибки
+            return new SuccesObject { Success = true, Type = ErrorType.NotError };
             //TODO Close
         }
     }

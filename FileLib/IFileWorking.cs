@@ -4,19 +4,19 @@
     {
         #region Create_Open
 
-        public File Create();
-        public File Open(string path);
+        public SuccesObject Create(out File file);
+        public SuccesObject Open(string path, out File file);
 
         #endregion
 
         #region Save
 
-        public void SaveAs(string path, File file);
-        public void Save(File file);
+        public SuccesObject SaveAs(string path, File file);
+        public SuccesObject Save(File file);
 
         #endregion
 
-        public void Print(File file);
-        public void Close(File file);
+        public SuccesObject Print(File file);
+        public SuccesObject Close(File file);
     }
 }
