@@ -1,8 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileLib", "FileLib\FileLib.csproj", "{8AA66102-6FE3-460D-9013-03AA79955F47}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileLib", "FileLib\FileLib.csproj", "{8AA66102-6FE3-460D-9013-03AA79955F47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleApp", "TestConsoleApp\TestConsoleApp.csproj", "{ADE2357D-F130-4354-98E7-C60CE0EC79E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsoleApp", "TestConsoleApp\TestConsoleApp.csproj", "{ADE2357D-F130-4354-98E7-C60CE0EC79E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEdit", "MEdit\MEdit.csproj", "{4B23A882-3FF8-4325-AF06-63BDE11DD8FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +23,15 @@ Global
 		{ADE2357D-F130-4354-98E7-C60CE0EC79E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADE2357D-F130-4354-98E7-C60CE0EC79E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADE2357D-F130-4354-98E7-C60CE0EC79E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B23A882-3FF8-4325-AF06-63BDE11DD8FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B23A882-3FF8-4325-AF06-63BDE11DD8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B23A882-3FF8-4325-AF06-63BDE11DD8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B23A882-3FF8-4325-AF06-63BDE11DD8FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FEDCC01-0FA9-4E6E-A311-EA237BCBDB1F}
 	EndGlobalSection
 EndGlobal
